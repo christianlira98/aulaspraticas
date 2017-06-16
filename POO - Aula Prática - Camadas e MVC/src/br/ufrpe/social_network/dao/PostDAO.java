@@ -4,14 +4,17 @@ import java.util.ArrayList;
 
 public class PostDAO {
     private static PostDAO instance;
+    private Post postsRepository2;
 	ArrayList<Post> var;
-    public PostDAO () {
+    
+	public PostDAO (Post p) {
     	var = new ArrayList<>();
+    	var.add(p);
     }
     
-    public static PostDAO getInstance() {
+    public static PostDAO getInstance(Post p) {
     	if(instance == null) {
-    		instance = new PostDAO();
+    		instance = new PostDAO(p);
     	}
     	return instance;
     }
@@ -47,14 +50,6 @@ public class PostDAO {
     	}
     }
     
-    public void listaProfunda(ArrayList<Post> p) {
-    	for(int i = 0; i < this.var.size(); i++) {
-    		if(this.var.get(i).getComments() == p)	{
-    			System.out.println(this.var.get(i).getComments());
-    			System.out.println();
-    		}
-    	}
-    }
     public boolean atualizar(long id, String texto, Person Author) {
     	boolean vari = false;
     	int cond = 0;
@@ -115,6 +110,10 @@ public class PostDAO {
     		}
     	}
     	return guarda;
+    }
+    
+    public void buscaProfunda(Person p) {
+    	this.postsRepository2.listaSubComments(p);
     }
 
     

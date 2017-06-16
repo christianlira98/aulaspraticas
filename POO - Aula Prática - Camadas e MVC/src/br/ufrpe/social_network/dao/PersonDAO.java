@@ -4,12 +4,12 @@ import java.time.LocalDate;
 public class PersonDAO {
 	
 	private static PersonDAO singlePattern;
-	private Person[] vetor;
+	private Person[] vetor = new Person[10];
 	private int proxima;
 	
 	private PersonDAO() {
-		this.vetor = new Person[10];
-		this.proxima = 0;
+		vetor = new Person[10];
+		this.proxima = 0 ;
 	}
 	
 	public static PersonDAO getInstance() {

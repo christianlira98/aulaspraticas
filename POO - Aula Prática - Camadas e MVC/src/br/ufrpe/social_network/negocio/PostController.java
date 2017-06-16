@@ -1,6 +1,5 @@
 package br.ufrpe.social_network.negocio;
 import br.ufrpe.social_network.dao.PostDAO;
-import java.util.ArrayList;
 import br.ufrpe.social_network.negocio.beans.Person;
 import br.ufrpe.social_network.negocio.beans.Post;
 
@@ -58,41 +57,32 @@ public class PostController {
     	}
     }
     // comentários em posts...!
-    public void listaProfunda(ArrayList<Post> p) {
-    	this.postsRepository.listaProfunda(p);
+    public void listaProfunda(Person p) {
+    	this.postsRepository.buscaProfunda(p);
     }
     
     public Post find(Post post) {
     	return this.procurar(post.getId());
     }
     
-    private Post procurar(long id) {
+    public Post procurar(long id) {
         return this.postsRepository.procurar(id);
       }
     
-    private boolean update(long id, String texto, Person Author) {
+    public boolean update(long id, String texto, Person Author) {
     	return this.postsRepository.atualizar(id, texto, Author);
     }
     
-    private boolean existe(long id) {
+    public boolean existe(long id) {
         return this.postsRepository.existe(id);
       }
       
-      private boolean cadastro(Post p) {
+    public boolean cadastro(Post p) {
     	  return this.postsRepository.cadastrar(p);
       }
       
-      private boolean deletar(long id) {
+    public boolean deletar(long id) {
     	  return this.postsRepository.remover(id);
       }
       
-      private int retornaID(Post p) {
-    	  return this.postsRepository.procurarIndice(p.getId());
-      }
-      
-    // TODO DESAFIO Implementar método que busque todos comentários que uma dada pessoa realizou em posts de terceiros
-    // Para implementar este método, você deve fazer uma buscar em todos os 
-    // comentários de todos os posts, verificando quem realizou aqueele comentário.
-    // Lembre-se que é possível realizar comentários de comentários e busca 
-    // precisaria ser feita em profundidade
 }

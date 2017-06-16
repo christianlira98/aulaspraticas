@@ -7,9 +7,8 @@ public class PersonController {
     
     private PersonDAO personsRepository;
     private static PersonController instance;
-    
     private PersonController() {
-        // Construtor privado para implementação de singleton
+    	
     }
 
     public static PersonController getInstance() {
@@ -47,25 +46,21 @@ public class PersonController {
         }
     }
     
-    private Person procurar(long id) {
+      public Person procurar(long id) {
         return this.personsRepository.procurar(id);
       }
 
-      private boolean existe(long id) {
+      public boolean existe(long id) {
         return this.personsRepository.existe(id);
       }
       
-      private int retornaID(Person p) {
-    	  return this.personsRepository.procurarIndice(p.getId());
-      }
-      
-      private boolean upd(long id, String name, String country, LocalDate birthDate) {
+      public boolean upd(long id, String name, String country, LocalDate birthDate) {
     	  return this.personsRepository.update(id, name, country, birthDate);
       }
-      private boolean cadastro(Person p) {
+      public boolean cadastro(Person p) {
     	  return this.personsRepository.cadastrar(p);
       }
-      private boolean remover(long id) {
+      public boolean remover(long id) {
     	  return this.personsRepository.remover(id);
       }
 }
