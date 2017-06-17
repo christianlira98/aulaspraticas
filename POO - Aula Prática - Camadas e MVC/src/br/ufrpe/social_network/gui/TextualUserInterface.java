@@ -24,12 +24,8 @@ public class TextualUserInterface {
 		// apagando
 		var.removePessoa(1);
 		
-		//adicionando nova
-		Person nova = new Person("Maria", "Brasil",LocalDate.of(2003, 3, 12) );
-		var.cadastrarPessoa(nova);
-		
 		//Atualizando um dos nomes.
-		var.updatePessoa(3, "Yonazaki", "Japão", LocalDate.of(2003, 3, 12));
+		var.updatePessoa(1, "Yonazaki", "Japão", LocalDate.of(2003, 3, 12));
 		
 		
 		// buscando

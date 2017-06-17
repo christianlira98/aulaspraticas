@@ -49,7 +49,7 @@ public class PersonDAO {
 					status = true;
 					this.vetor[i] = this.vetor[this.proxima-1];
 					this.vetor[this.proxima-1] = null;
-					this.proxima -= 1;
+					this.proxima = this.proxima - 1;
 				}
 			}
 		return status;
