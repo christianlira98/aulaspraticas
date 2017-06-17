@@ -5,16 +5,15 @@ import java.util.ArrayList;
 public class PostDAO {
     private static PostDAO instance;
     private Post postsRepository2;
-	ArrayList<Post> var;
+	ArrayList<Post> var = new ArrayList<>();;
     
-	public PostDAO (Post p) {
-    	var = new ArrayList<>();
-    	var.add(p);
+	public PostDAO () {
+    	
     }
     
-    public static PostDAO getInstance(Post p) {
+    public static PostDAO getInstance() {
     	if(instance == null) {
-    		instance = new PostDAO(p);
+    		instance = new PostDAO();
     	}
     	return instance;
     }
@@ -110,11 +109,7 @@ public class PostDAO {
     		}
     	}
     	return guarda;
-    }
-    
-    public void buscaProfunda(Person p) {
-    	this.postsRepository2.listaSubComments(p);
-    }
+    }   
 
     
 }

@@ -9,11 +9,12 @@ public class Fachada {
     private PostController posts;
     
     private Fachada () {
-    	
+    	this.cadastroPerson = PersonController.getInstance();
+    	this.posts = PostController.getInstance();
     	
     }
     
-    private static Fachada getInstance() {
+    public static Fachada getInstance() {
     	if(instance == null) {
     		instance = new Fachada();
     	}
@@ -36,12 +37,10 @@ public class Fachada {
     public boolean removePessoa(long id) {
     	  return this.cadastroPerson.remover(id);
       }
-    
-    
-    
+   
     public Post procurarPost(long id) {
-        return this.posts.procurar(id);
-      }
+    	return this.posts.procurar(id);
+    }
     
     public boolean updatePost(long id, String texto, Person Author) {
     	return this.posts.update(id, texto, Author);
@@ -58,6 +57,11 @@ public class Fachada {
     public boolean deletar(long id) {
     	  return this.posts.remover(id);
       }
+    
+    public void listar(Person p) {
+    	this.posts.listar(p);
+    }
+    
 
     
 }

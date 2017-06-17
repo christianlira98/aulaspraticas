@@ -8,7 +8,7 @@ public class PersonController {
     private PersonDAO personsRepository;
     private static PersonController instance;
     private PersonController() {
-    	
+    	this.personsRepository = PersonDAO.getInstance();
     }
 
     public static PersonController getInstance() {

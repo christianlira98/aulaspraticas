@@ -57,7 +57,6 @@ public class Post {
     	this.texto = novo;
     }
     
-    
 
 	public void addComment(Post comment) {
         if (comment != null) {
@@ -75,32 +74,13 @@ public class Post {
     	}
     }
     
-    public void listaSubComments(Person author) {
-    	for(int i = 0; i<this.comments.size();i++) {
-    		
-    		for(int j = 0; j<this.comments.get(i).comments.size(); j++) {
-    			
-    			for(int k = 0; k<this.comments.get(i).comments.get(j).comments.size(); k++) {
-    				
-	    			if(this.comments.get(i).comments.get(j).getAuthor()==author) {
-	    				
-		    			System.out.println(this.comments.get(i).comments.get(j).toString());
-		    		}
-	    			
-	    			if(this.comments.get(i).comments.get(j).comments.get(k).getAuthor()==author) {
-	    				
-	    				System.out.println(this.comments.get(i).comments.get(j).comments.get(k).toString());
-	    			}
-    			}
-    		
-    		
-    		}
-    	}
-    }
+    
+    	
+  
     
     @Override
     public String toString() {
-    	String str = " Post: " +getTexto()+ "Id: "+getId()+"\n" + this.author.toString() ;
+    	String str = " Post: " +getTexto()+ " Id do post: "+getId()+"\n" + this.author.toString() ;
     	
         return str;
     }

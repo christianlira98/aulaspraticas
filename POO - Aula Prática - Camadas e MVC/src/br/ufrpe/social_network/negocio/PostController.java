@@ -8,7 +8,7 @@ public class PostController {
     private static PostController instance;
     
     private PostController () {
-    	
+    	this.postsRepository = PostDAO.getInstance();
     }
     public static PostController getInstance(){
     	if(instance == null) {
@@ -56,11 +56,6 @@ public class PostController {
     		this.postsRepository.listar(p);
     	}
     }
-    // comentários em posts...!
-    public void listaProfunda(Person p) {
-    	this.postsRepository.buscaProfunda(p);
-    }
-    
     public Post find(Post post) {
     	return this.procurar(post.getId());
     }
@@ -84,5 +79,6 @@ public class PostController {
     public boolean deletar(long id) {
     	  return this.postsRepository.remover(id);
       }
+    
       
 }
